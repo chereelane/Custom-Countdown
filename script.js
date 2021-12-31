@@ -4,6 +4,7 @@ const dateEl = document.getElementById('date-picker');
 
 let countdownTitle = '';
 let countdownDate = '';
+let countdownValue = Date;
 
 // Set Date Input Min with Today's Date
 const today = new Date().toISOString().split('T')[0];
@@ -15,6 +16,9 @@ function updateCountdown(e) {
     countdownTitle = e.target[0].value;
     countdownDate = e.target[1].value;
     console.log(countdownTitle, countdownDate);
+    // Get the number version of current date
+    countdownValue = new Date(countdownDate).getTime()
+    console.log('countdown value', countdownValue);
 }
 // Event Listener
 countdownForm.addEventListener('submit', updateCountdown);
