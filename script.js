@@ -68,7 +68,6 @@ function updateCountdown(e) {
         title: countdownTitle,
         date: countdownDate,
     };
-    console.log(savedCountdown);
     localStorage.setItem('countdown', JSON.stringify(savedCountdown));
     //   Check for valid date
     if (countdownDate == '') {
@@ -110,3 +109,6 @@ function restorePreviousCountdown() {
 countdownForm.addEventListener('submit', updateCountdown);
 countdownBtn.addEventListener('click', reset);
 completeBtn.addEventListener('click', reset);
+
+// On Load, check local storage
+restorePreviousCountdown();
